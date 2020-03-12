@@ -21,7 +21,6 @@ import com.stefanini.model.PessoaPerfil;
 public class PessoaPerfilServico implements Serializable {
 
 	
-	
 	private static final long serialVersionUID = 1L;
 	
 	
@@ -29,18 +28,17 @@ public class PessoaPerfilServico implements Serializable {
 	private PessoaPerfilDAO dao;
 
 	
-
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public PessoaPerfil salvar(@Valid PessoaPerfil pessoa) {
 		return dao.salvar(pessoa);
 	}
 
-
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public PessoaPerfil atualizar(@Valid PessoaPerfil entity) {
 		return dao.atualizar(entity);
 	}
 
-	
+	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void remover(@Valid Long id) {
 		dao.remover(id);
 	}

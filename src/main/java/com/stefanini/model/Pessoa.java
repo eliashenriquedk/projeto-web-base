@@ -18,6 +18,7 @@ import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
 import javax.validation.constraints.NotNull;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
@@ -31,6 +32,8 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 @NamedQueries(value = {
 		@NamedQuery(name = "Pessoa.findByNome",
 				query = "select p from Pessoa p where p.nome=:nome"),
+		@NamedQuery(name = "Pessoa.findByEmail",
+				query = "select p from Pessoa p where p.email=:email"),
 		@NamedQuery(name = "Pessoa.findPerfilsAndEnderecosByNome",
 				query = "select  p from Pessoa p  JOIN FETCH p.perfils JOIN FETCH p.enderecos  where p.nome=:nome")
 })
@@ -58,6 +61,7 @@ public class Pessoa implements Serializable{
 	/**
 	 * Email da Pessoa
 	 */
+	@Email
 	@NotNull
 	@Column(name = "DS_EMAIL")
 	private String email;

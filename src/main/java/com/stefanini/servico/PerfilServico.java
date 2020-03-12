@@ -29,10 +29,13 @@ public class PerfilServico implements Serializable {
 	@Inject
 	private PerfilDAO dao;
 	
-
+	//buscarNomePerfil
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
-	public Perfil salvar(@Valid Perfil perfil) {
-		return dao.salvar(perfil);
+	public Perfil salvar(@Valid Perfil perfil) throws Exception {
+		if(dao.buscarNomePerfil(perfil.getNome()).get().isEmpty()) {
+			return dao.salvar(perfil);			
+		}
+		throw new Exception(" Nome de Perfil já existe! ");
 	}
 
 

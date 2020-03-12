@@ -80,9 +80,8 @@ public abstract class GenericDAO<T, I extends Serializable> implements IGenericS
 	public Optional<T> encontrar(I id) {
 		return Optional.ofNullable(getEntityManager().find(classe, id));
 	}
-	
-	
 
+	
 	/**
 	 * Obter o EntityManager
 	 * @return

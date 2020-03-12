@@ -35,7 +35,7 @@ public class PessoaResource {
 	}
 
 	@POST
-	public Response salvarPessoa(@Valid Pessoa pessoa) {
+	public Response salvarPessoa(@Valid Pessoa pessoa) throws Exception {
 		return Response.ok(pessoaServico.salvar(pessoa)).build();
 	}
 	
@@ -46,7 +46,7 @@ public class PessoaResource {
 	
 	@DELETE
 	@Path("{id}")
-	public Response removerPessoa(@PathParam("id") Long id) {
+	public Response removerPessoa(@PathParam("id") Long id) throws Exception {
 		pessoaServico.remover(id);
 		return Response.ok().build();
 	}

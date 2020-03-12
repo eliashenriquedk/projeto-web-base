@@ -8,13 +8,11 @@ import java.time.LocalDateTime;
 @Entity
 @Table(name = "TB_PERFIL")
 public class Perfil implements Serializable {
-    /**
-	 * 
-	 */
+  
+	
 	private static final long serialVersionUID = 1L;
-	/**
-     *
-     */
+	
+	
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "co_seq_perfil")
