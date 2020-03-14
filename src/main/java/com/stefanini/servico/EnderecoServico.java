@@ -15,12 +15,6 @@ import javax.validation.Valid;
 import com.stefanini.dao.EnderecoDAO;
 import com.stefanini.model.Endereco;
 
-/**
- * 
- * Classe de servico, as regras de negocio devem estar nessa classe
- * @author joaopedromilhome
- *
- */
 
 
 @Stateless
@@ -32,34 +26,38 @@ public class EnderecoServico implements Serializable {
 	private static final long serialVersionUID = 1L;
 	
 	@Inject
-	private EnderecoDAO dao;
+	private EnderecoDAO enderecoDao;
 
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Endereco salvar(@Valid Endereco entity) {
-		return dao.salvar(entity);
+		return enderecoDao.salvar(entity);
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public Endereco atualizar(@Valid Endereco entity) {
-		return dao.atualizar(entity);
+		return enderecoDao.atualizar(entity);
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void remover(@Valid Long id) {
-	dao.remover(id);
+	enderecoDao.remover(id);
 	}
 
 	public Optional<List<Endereco>> getList() {
-		return dao.getList();
+		return enderecoDao.getList();
 	}
 	
-	//
-	public Optional<List<Endereco>> buscarSePessoaPossuiEndereco(Long id) {
-		return dao.buscarSePessoaPossuiEndereco(id);
-	}
-
 	public Optional<Endereco> encontrar(Long id) {
-		return dao.encontrar(id);
+		return enderecoDao.encontrar(id);
 	}
+	
+	
+
+	public Optional<List<Endereco>> buscarSePessoaPossuiEndereco(Long id) {
+		return enderecoDao.buscarSePessoaPossuiEndereco(id);
+	}
+	
+	
+	
 }

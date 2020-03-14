@@ -9,4 +9,5 @@ public class PessoaPerfilDAO extends GenericDAO<PessoaPerfil, Long> {
 		super(PessoaPerfil.class);
 	}
 	
+	//fazer metodo de verificar se algum perfil existe no pessoaPerfil
 }

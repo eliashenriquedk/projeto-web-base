@@ -25,32 +25,32 @@ public class PessoaPerfilServico implements Serializable {
 	
 	
 	@Inject
-	private PessoaPerfilDAO dao;
+	private PessoaPerfilDAO PessoaPerfildao;
 
 	
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public PessoaPerfil salvar(@Valid PessoaPerfil pessoa) {
-		return dao.salvar(pessoa);
+		return PessoaPerfildao.salvar(pessoa);
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public PessoaPerfil atualizar(@Valid PessoaPerfil entity) {
-		return dao.atualizar(entity);
+		return PessoaPerfildao.atualizar(entity);
 	}
 
 	@TransactionAttribute(TransactionAttributeType.REQUIRES_NEW)
 	public void remover(@Valid Long id) {
-		dao.remover(id);
+		PessoaPerfildao.remover(id);
 	}
 
 	
 	public Optional<List<PessoaPerfil>> getList() {
-		return dao.getList();
+		return PessoaPerfildao.getList();
 	}
 
 	
 	public Optional<PessoaPerfil> encontrar(Long id) {
-		return dao.encontrar(id);
+		return PessoaPerfildao.encontrar(id);
 	}
 
 }
